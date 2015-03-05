@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns:sfa="http://student.wisc.edu/finance/v1" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	elementFormDefault="qualified" targetNamespace="http://student.wisc.edu/finance/v1">
+	
+    <xs:complexType name="chargeType">
+    	<xs:annotation>
+    		<xs:documentation>
+				Complex type encapsulating a single charge on a students account.
+    		</xs:documentation>	
+    	</xs:annotation>
+    	<xs:sequence>
+    		<xs:element name="id" type="xs:string"/>
+    		<xs:element name="name" type="xs:string"/>
+    		<xs:element name="description" type="xs:string" minOccurs="0"/>
+    		<xs:element name="balanceDue" type="xs:int"/> <!-- Come back for type -->
+    		<xs:element name="lastUpdated" type="xs:dateTime"/>
+    		<xs:element name="dueDate" type="xs:date"/>
+    		<xs:element name="status" type="xs:string"/>
+    	</xs:sequence>
+    </xs:complexType>
+    <xs:element name="charge" type="sfa:chargeType"/>
+</xs:schema>
