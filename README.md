@@ -14,7 +14,7 @@ with any part of the infrastructure supporting the Student Financial Account.
 
 Executing the following at the root of the project will start the application locally with Jetty:
 
-> mvn install jetty:run-war
+> mvn install jetty:run
 
 Point your browser at http://localhost:8080 and you are running.
 
