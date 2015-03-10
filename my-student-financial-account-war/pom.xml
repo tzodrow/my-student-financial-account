@@ -23,6 +23,11 @@
 			</exclusions>
 		</dependency>
 		<dependency>
+			<groupId>edu.wisc.my.apps.studentfinancialaccount</groupId>
+			<artifactId>my-student-financial-account-api</artifactId>
+			<version>${project.version}</version>
+	    </dependency>
+		<dependency>
 			<groupId>edu.wisc.my.portal.angular</groupId>
 			<artifactId>angularjs-portal-frame</artifactId>
 			<type>war</type>
