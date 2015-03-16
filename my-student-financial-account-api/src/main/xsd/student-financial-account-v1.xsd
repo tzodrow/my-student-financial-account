@@ -14,7 +14,7 @@
     		<xs:element name="id" type="xs:string"/>
     		<xs:element name="name" type="xs:string"/>
     		<xs:element name="description" type="xs:string" minOccurs="0"/>
-    		<xs:element name="balanceDue" type="xs:int"/> <!-- Come back for type -->
+    		<xs:element name="balanceDue" type="xs:decimal"/>
     		<xs:element name="lastUpdated" type="xs:dateTime"/>
     		<xs:element name="dueDate" type="xs:date"/>
     		<xs:element name="status" type="xs:string"/>

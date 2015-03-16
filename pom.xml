@@ -19,12 +19,21 @@
 		</repository>
 	</repositories>
 
+	<properties>
+		<spring.framework.version>4.1.5.RELEASE</spring.framework.version>
+	</properties>
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>com.mangofactory</groupId>
 				<artifactId>swagger-springmvc</artifactId>
 				<version>0.9.4</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>2.5.1</version>
 			</dependency>
 			<dependency>
 				<groupId>edu.wisc.my.portal.angular</groupId>
@@ -36,6 +45,11 @@
 				<groupId>javax.inject</groupId>
 				<artifactId>javax.inject</artifactId>
 				<version>1</version>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.11</version>
 			</dependency>
 			<dependency>
 				<groupId>org.jvnet.jaxb2_commons</groupId>
@@ -50,6 +64,11 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-web</artifactId>
+				<version>${spring.framework.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
 				<version>${spring.framework.version}</version>
 			</dependency>
 		</dependencies>
@@ -97,5 +116,6 @@
 	<modules>
 		<module>my-student-financial-account-war</module>
 		<module>my-student-financial-account-api</module>
+		<module>my-student-financial-account-impl</module>
 	</modules>
 </project>
