@@ -37,18 +37,49 @@
 				<artifactId>javax.inject</artifactId>
 		</dependency>
 		<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-oxm</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 	
 	<build>
 		<plugins>
+			<plugin>         
+				<groupId>org.apache.maven.plugins</groupId>         
+				<artifactId>maven-war-plugin</artifactId>         
+				<configuration>           
+					<dependentWarExcludes>WEB-INF/web.xml</dependentWarExcludes>
+					<failOnMissingWebXml>false</failOnMissingWebXml>         
+				</configuration>        
+			</plugin>
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<configuration>
 					<skip>false</skip>
+					<systemProperties>
+      					<systemProperty>
+      						<name>log4j.configuration</name>
+                			<value>log4j-developer.properties</value>
+      					</systemProperty>
+					</systemProperties>
+					<webApp>
+						<extraClasspath>${basedir}/src/etc/resources</extraClasspath>
+					</webApp> 
 				</configuration>
 			</plugin>
 		</plugins>
