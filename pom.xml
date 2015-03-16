@@ -7,10 +7,6 @@
 	<packaging>pom</packaging>
 	<name>My Student Financial Account Parent</name>
 	<description>Parent pom for My UW Madison Student Financial Account app.</description>
-	
-	<properties>
-		<spring.framework.version>4.1.2.RELEASE</spring.framework.version>
-	</properties>
 
 	<repositories>
 		<repository>
