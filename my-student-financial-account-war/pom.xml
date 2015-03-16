@@ -13,9 +13,32 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>com.mangofactory</groupId>
+			<artifactId>swagger-springmvc</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>cglib</groupId>
+					<artifactId>cglib</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>edu.wisc.my.apps.studentfinancialaccount</groupId>
+			<artifactId>my-student-financial-account-api</artifactId>
+			<version>${project.version}</version>
+	    </dependency>
+		<dependency>
 			<groupId>edu.wisc.my.portal.angular</groupId>
 			<artifactId>angularjs-portal-frame</artifactId>
 			<type>war</type>
+		</dependency>
+		<dependency>
+				<groupId>javax.inject</groupId>
+				<artifactId>javax.inject</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
 		</dependency>
 	</dependencies>
 	
