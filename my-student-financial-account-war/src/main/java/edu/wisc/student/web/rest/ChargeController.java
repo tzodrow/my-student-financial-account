@@ -25,10 +25,9 @@ import edu.wisc.student.finance.v1.ChargeType;
  * @author zodrow
  *
  */
-
 @Api("SPFP API")
 @Controller
-@RequestMapping(value="/api/v1", produces={ MediaType.APPLICATION_JSON_VALUE})
+@RequestMapping(value="/v1", produces={ MediaType.APPLICATION_JSON_VALUE})
 public class ChargeController {
 
 		@Inject

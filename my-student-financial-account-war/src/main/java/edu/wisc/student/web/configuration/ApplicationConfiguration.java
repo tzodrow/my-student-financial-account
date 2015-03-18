@@ -14,10 +14,10 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import edu.wisc.student.finance.v1.ChargeType;
 
 /**
+ * Service {@link Configuration}.
+ * 
  * @author zodrow
- *
  */
-
 @Configuration
 @ComponentScan("edu.wisc.student.finance.demo")
 @PropertySource("classpath:application.properties")

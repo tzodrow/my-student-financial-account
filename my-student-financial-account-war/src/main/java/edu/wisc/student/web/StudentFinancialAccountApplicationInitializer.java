@@ -9,8 +9,9 @@ import edu.wisc.student.web.configuration.ApplicationConfiguration;
 import edu.wisc.student.web.configuration.WebConfiguration;
 
 /**
+ * Servlet 3.0 initializer.
+ * 
  * @author zodrow
- *
  */
 public class StudentFinancialAccountApplicationInitializer extends 
 	AbstractAnnotationConfigDispatcherServletInitializer {
@@ -36,7 +37,7 @@ public class StudentFinancialAccountApplicationInitializer extends
 	 */
 	@Override
 	protected String[] getServletMappings() {
-		return new String[] { "/" };
+		return new String[] { "/api/*" };
 	}
 
 }
