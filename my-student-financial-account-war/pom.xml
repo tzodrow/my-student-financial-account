@@ -24,7 +24,7 @@
 		</dependency>
 		<dependency>
 			<groupId>edu.wisc.my.apps.studentfinancialaccount</groupId>
-			<artifactId>my-student-financial-account-api</artifactId>
+			<artifactId>my-student-financial-account-impl</artifactId>
 			<version>${project.version}</version>
 	    </dependency>
 		<dependency>
