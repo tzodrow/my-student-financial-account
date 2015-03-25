@@ -7,6 +7,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 
 import edu.wisc.student.web.configuration.ApplicationConfiguration;
 import edu.wisc.student.web.configuration.WebConfiguration;
+import edu.wisc.uwss.configuration.UWSpringSecurityConfiguration;
 
 /**
  * Servlet 3.0 initializer.
@@ -21,7 +22,7 @@ public class StudentFinancialAccountApplicationInitializer extends
 	 */
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class<?>[] { ApplicationConfiguration.class };
+		return new Class<?>[] { ApplicationConfiguration.class, UWSpringSecurityConfiguration.class };
 	}
 
 	/* (non-Javadoc)

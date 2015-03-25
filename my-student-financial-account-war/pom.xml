@@ -33,6 +33,10 @@
 			<type>war</type>
 		</dependency>
 		<dependency>
+			<groupId>edu.wisc.uwss</groupId>
+			<artifactId>uw-spring-security-config</artifactId>
+		</dependency>
+		<dependency>
 				<groupId>javax.inject</groupId>
 				<artifactId>javax.inject</artifactId>
 		</dependency>
