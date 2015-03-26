@@ -25,6 +25,9 @@
         <maven.compiler.source>1.7</maven.compiler.source>
 	    <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
 		<maven.compiler.testSource>1.8</maven.compiler.testSource>
+		<slf4j.version>1.7.7</slf4j.version>
+		<derby.version>10.11.1.1</derby.version>
+		<javax.mail.version>1.4</javax.mail.version>
 	</properties>
 
 	<dependencyManagement>
@@ -38,6 +41,11 @@
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-databind</artifactId>
 				<version>2.5.1</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>2.4</version>
 			</dependency>
 			<dependency>
 				<groupId>edu.wisc.my.portal.angular</groupId>
@@ -61,6 +69,11 @@
 				<version>1</version>
 			</dependency>
 			<dependency>
+				<groupId>javax.mail</groupId>
+				<artifactId>mail</artifactId>
+				<version>${javax.mail.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet-api</artifactId>
 				<version>3.0.1</version>
@@ -70,6 +83,11 @@
 				<artifactId>junit</artifactId>
 				<version>4.11</version>
 			</dependency>
+			<dependency>
+				<groupId>org.apache.derby</groupId>
+				<artifactId>derby</artifactId>
+				<version>${derby.version}</version>
+      		</dependency>
 			<dependency>
 				<groupId>org.jvnet.jaxb2_commons</groupId>
 				<artifactId>jaxb2-basics</artifactId>
@@ -173,6 +191,32 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<configuration>
 					<skip>true</skip>
+				</configuration>
+			</plugin>	
+			<plugin>
+			    <groupId>org.apache.tomcat.maven</groupId>
+			    <artifactId>tomcat7-maven-plugin</artifactId>
+    			<version>2.2</version>
+    			<configuration>
+	      			<!-- http port -->
+	      			<port>9090</port>
+					<!-- application path always starts with /-->
+					<path>/</path>
+					<!-- optional path to a context file -->
+					<contextFile>${tomcatContextXml}</contextFile>
+					<!-- optional system propoerties you want to add -->
+					<systemProperties>
+						<appserver.base>${project.build.directory}/appserver-base</appserver.base>
+						<appserver.home>${project.build.directory}/appserver-home</appserver.home>
+						<derby.system.home>${project.build.directory}/appserver-base/logs</derby.system.home>
+						<java.io.tmpdir>${project.build.directory}</java.io.tmpdir>
+					</systemProperties>
+					<!-- if you want to use test dependencies rather than only runtime -->
+					<useTestClasspath>false</useTestClasspath>
+					<!-- optional if you want to add some extra directories into the classloader -->
+					<additionalClasspathDirs>
+					<additionalClasspathDir></additionalClasspathDir>
+					</additionalClasspathDirs>
 				</configuration>
 			</plugin>
 		    <plugin>
