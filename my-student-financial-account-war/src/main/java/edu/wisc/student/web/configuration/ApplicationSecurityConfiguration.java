@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package edu.wisc.student.web.configuration;
 
@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 
 /**
  * {@link Configuration} activating security and access control components.
- * 
+ *
  * @author Nicholas Blair
  */
 @Configuration

@@ -15,7 +15,11 @@
 			<groupId>edu.wisc.uwss</groupId>
 			<artifactId>uw-spring-security-core</artifactId>
 		</dependency>
-		
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
