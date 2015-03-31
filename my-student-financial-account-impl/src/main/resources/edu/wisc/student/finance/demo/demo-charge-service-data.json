@@ -1,5 +1,35 @@
 {
 
+  "bbadger": [
+    {
+      "id": "1",
+      "name": "Tuition",
+      "description": "Fall 2016 Tuition Charges",
+      "balanceDue": 6000.00,
+      "lastUpdated": 1426514713,
+      "dueDate": "2015-09-15",
+      "status": "unpaid"
+    },
+    {
+      "id": "2",
+      "name": "Housing",
+      "description": "117 Bleyer Bradley - Double Room (10/25/14-12/20/14)",
+      "balanceDue": 3500.00,
+      "lastUpdated": 1426514713,
+      "dueDate": "2015-09-15",
+      "status": "unpaid"
+    },
+    {
+      "id": "3",
+      "name": "Health Services",
+      "description": "",
+      "balanceDue": 24.00,
+      "lastUpdated": 1426514713,
+      "dueDate": "2015-09-15",
+      "status": "unpaid"
+    }
+  ],
+
   "UW000A001": [
     {
       "id": "1",
