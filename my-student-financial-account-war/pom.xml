@@ -26,11 +26,15 @@
 			<groupId>edu.wisc.my.apps.studentfinancialaccount</groupId>
 			<artifactId>my-student-financial-account-impl</artifactId>
 			<version>${project.version}</version>
-	    </dependency>
+		</dependency>
 		<dependency>
 			<groupId>edu.wisc.my.portal.angular</groupId>
 			<artifactId>angularjs-portal-frame</artifactId>
 			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>edu.wisc.uwss</groupId>
+			<artifactId>uw-spring-security-config</artifactId>
 		</dependency>
 		<dependency>
 				<groupId>javax.inject</groupId>
@@ -55,16 +59,16 @@
 			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<plugins>
-			<plugin>         
-				<groupId>org.apache.maven.plugins</groupId>         
-				<artifactId>maven-war-plugin</artifactId>         
-				<configuration>           
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
 					<dependentWarExcludes>WEB-INF/web.xml,WEB-INF/lib</dependentWarExcludes>
-					<failOnMissingWebXml>false</failOnMissingWebXml>         
-				</configuration>        
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
@@ -73,14 +77,18 @@
 					<skip>false</skip>
 					<jvmArgs>-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=7002 -Xnoagent -Dlog4j.configuration=log4j-developer.properties</jvmArgs>
 					<systemProperties>
-      					<systemProperty>
-      						<name>log4j.configuration</name>
-                			<value>log4j-developer.properties</value>
-      					</systemProperty>
+						<systemProperty>
+							<name>log4j.configuration</name>
+							<value>log4j-developer.properties</value>
+						</systemProperty>
+						<systemProperty>
+							<name>spring.profiles.active</name>
+							<value>local-users</value>
+						</systemProperty>
 					</systemProperties>
 					<webApp>
 						<extraClasspath>${basedir}/src/etc/resources</extraClasspath>
-					</webApp> 
+					</webApp>
 				</configuration>
 			</plugin>
 		</plugins>

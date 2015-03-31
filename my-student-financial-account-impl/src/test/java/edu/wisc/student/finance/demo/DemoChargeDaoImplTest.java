@@ -15,20 +15,20 @@ import org.junit.Test;
 import edu.wisc.student.finance.v1.ChargeType;
 
 /**
- * Tests for {@link DemoChargeServiceImpl}.
+ * Tests for {@link DemoChargeDaoImpl}.
  * 
  * @author Nicholas Blair
  */
-public class DemoChargeServiceImplTest {
+public class DemoChargeDaoImplTest {
 
   /**
-   * Confirm properly initialized {@link DemoChargeServiceImpl} has expected data.
+   * Confirm properly initialized {@link DemoChargeDaoImpl} has expected data.
    * 
    * @throws IOException 
    */
   @Test
   public void getCharges_control() throws IOException {
-    DemoChargeServiceImpl service = new DemoChargeServiceImpl();
+    DemoChargeDaoImpl service = new DemoChargeDaoImpl();
     service.init();
     
     Collection<ChargeType> charges = service.getCharges("bbadger");

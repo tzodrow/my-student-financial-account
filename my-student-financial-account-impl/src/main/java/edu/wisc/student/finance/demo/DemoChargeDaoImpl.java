@@ -19,16 +19,16 @@ import org.springframework.core.io.ClassPathResource;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import edu.wisc.student.finance.ChargeService;
+import edu.wisc.student.finance.ChargeDao;
 import edu.wisc.student.finance.v1.ChargeType;
 
 /**
- * Demo implementation of {@link ChargeService}.
+ * Demo implementation of {@link ChargeDao}.
  * 
  * @author Nicholas Blair
  */
 @Named
-public class DemoChargeServiceImpl implements ChargeService {
+public class DemoChargeDaoImpl implements ChargeDao {
 
   private Map<String, List<ChargeType>> data = Collections.emptyMap();
   
@@ -42,8 +42,9 @@ public class DemoChargeServiceImpl implements ChargeService {
   protected void init() throws IOException {
     data = Collections.unmodifiableMap(readDemoData());
   }
-  /* (non-Javadoc)
-   * @see edu.wisc.student.finance.ChargeService#getCharges(java.lang.String)
+  /*
+   * (non-Javadoc)
+   * @see edu.wisc.student.finance.ChargeDao#getCharges(java.lang.String)
    */
   @Override
   public Collection<ChargeType> getCharges(String studentIdentifier) {
