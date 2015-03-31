@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package edu.wisc.student.web.rest;
 
@@ -24,7 +24,7 @@ import edu.wisc.uwss.UWUserDetails;
 
 /**
  * {@link Controller} providing the REST methods for {@link ChargeService}.
- * 
+ *
  * @author zodrow
  */
 @Api("SPFP API")
@@ -36,7 +36,7 @@ public class ChargeController {
   private ChargeService chargeService;
 
   /**
-   * 
+   *
    * @return all {@link ChargeType}s for the current authenticated student
    */
   @ApiOperation(value="Get all charges for the current authenticated user",
@@ -46,22 +46,23 @@ public class ChargeController {
     Collection<ChargeType> charges = chargeService.getCharges(currentUser());
     return charges;
   }
+
   /**
-   * 
+   *
    * @param id the id of the student
    * @return all {@link ChargeType}s for the specified student
    */
   @ApiOperation(value="Get all charges for Student",
       notes="Retrieve all the charges associated with the student", response=ChargeType.class)
   @RequestMapping(value="charges/{id}", method=RequestMethod.GET)
-  public Collection<ChargeType> getCharges( @PathVariable String id ){
+  public @ResponseBody Collection<ChargeType> getCharges( @PathVariable String id ){
     Collection<ChargeType> charges = chargeService.getCharges(id);
     return charges;
   }
-  
+
   /**
    * TODO: replace this with current UserDetails from Spring Security once integrated.
-   * 
+   *
    * @return the id of the current user
    */
   protected String currentUser() {
