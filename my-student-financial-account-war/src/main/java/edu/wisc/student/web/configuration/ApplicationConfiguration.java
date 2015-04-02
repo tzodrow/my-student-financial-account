@@ -19,7 +19,7 @@ import edu.wisc.student.finance.v1.ChargeType;
  * @author zodrow
  */
 @Configuration
-@ComponentScan("edu.wisc.student.finance.demo")
+@ComponentScan(basePackages= { "edu.wisc.student.finance.demo", "edu.wisc.student.finance.service" })
 @PropertySource("classpath:application.properties")
 public class ApplicationConfiguration {
 	@Bean
