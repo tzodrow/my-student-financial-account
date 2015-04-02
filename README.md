@@ -4,7 +4,7 @@ This project is a My UW Madison App intended to provide students and parents wit
 
 ### Developer Requirements
 
-1. Java 8+
+1. Java 7 - strict, Java 8 is not yet supported by our target deployment environment
 2. Maven 3.2+
 
 ### Running locally
