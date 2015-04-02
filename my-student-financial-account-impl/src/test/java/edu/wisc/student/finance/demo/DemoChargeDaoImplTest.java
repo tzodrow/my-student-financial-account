@@ -9,6 +9,7 @@ import static org.junit.Assert.assertTrue;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Collection;
+import java.util.function.Predicate;
 
 import org.junit.Test;
 
@@ -49,4 +50,22 @@ public class DemoChargeDaoImplTest {
       }
     }
   }
+  
+  
+	/**
+	 * This test verifies that all demo users have a balance due.
+	 * Its not a good test but it serves as proof that we can use java 8.
+	 * @throws IOException
+	 */
+	@Test
+  public void AllDemoUsersHaveBalanceDue() throws IOException {
+	  DemoChargeDaoImpl service = new DemoChargeDaoImpl();
+	   service.init();
+	   boolean allMatch = service.getCharges("bbadger").stream().allMatch( 
+			   (p)-> p.getBalanceDue().compareTo(new BigDecimal(0)) != 0
+			  );
+	   assertTrue(allMatch);
+  }
 }
+
+
