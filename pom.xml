@@ -199,24 +199,7 @@
     			<version>2.2</version>
     			<configuration>
 	      			<!-- http port -->
-	      			<port>9090</port>
-					<!-- application path always starts with /-->
-					<path>/</path>
-					<!-- optional path to a context file -->
-					<contextFile>${tomcatContextXml}</contextFile>
-					<!-- optional system propoerties you want to add -->
-					<systemProperties>
-						<appserver.base>${project.build.directory}/appserver-base</appserver.base>
-						<appserver.home>${project.build.directory}/appserver-home</appserver.home>
-						<derby.system.home>${project.build.directory}/appserver-base/logs</derby.system.home>
-						<java.io.tmpdir>${project.build.directory}</java.io.tmpdir>
-					</systemProperties>
-					<!-- if you want to use test dependencies rather than only runtime -->
-					<useTestClasspath>false</useTestClasspath>
-					<!-- optional if you want to add some extra directories into the classloader -->
-					<additionalClasspathDirs>
-					<additionalClasspathDir></additionalClasspathDir>
-					</additionalClasspathDirs>
+	      			<port>8080</port>
 				</configuration>
 			</plugin>
 		    <plugin>
