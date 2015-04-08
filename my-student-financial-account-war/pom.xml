@@ -87,9 +87,13 @@
 			    <configuration>
 			    	<skip>false</skip>
 			    	<path>/</path>
-				<systemProperties>
-					<spring.profiles.active>local-users</spring.profiles.active>
-				</systemProperties>
+			    	<additionalClasspathDirs>
+        				<additionalClasspathDir>${basedir}/src/etc/resources</additionalClasspathDir>
+      				</additionalClasspathDirs>
+					<systemProperties>
+						<spring.profiles.active>local-users</spring.profiles.active>
+						<log4j.configuration>log4j-developer.properties</log4j.configuration>
+					</systemProperties>
 				</configuration>
 				<dependencies>
 					<dependency>
