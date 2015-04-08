@@ -68,16 +68,7 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
-					<overlays>
-						<overlay>
-							<groupId>edu.wisc.my.portal.angular</groupId>
-							<artifactId>angularjs-portal-frame</artifactId>
-							<excludes>
-								<exclude>WEB-INF/web.xml</exclude>
-								<exclude>WEB-INF/lib</exclude>
-							</excludes>
-						</overlay>
-					</overlays>
+					<dependentWarExcludes>WEB-INF/web.xml, WEB-INF/lib</dependentWarExcludes>
 				</configuration>
 			</plugin>
 			<plugin>
