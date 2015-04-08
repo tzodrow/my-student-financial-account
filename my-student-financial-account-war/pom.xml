@@ -87,12 +87,12 @@
 			    <configuration>
 			    	<skip>false</skip>
 			    	<path>/</path>
-			    	<additionalClasspathDirs>
-        				<additionalClasspathDir>${basedir}/src/etc/resources</additionalClasspathDir>
-      				</additionalClasspathDirs>
+			    	<!-- <additionalClassesDirs>
+        				<additionalClassesDir>${basedir}/src/etc/resources</additionalClassesDir>
+      				</additionalClassesDirs> -->
 					<systemProperties>
 						<spring.profiles.active>local-users</spring.profiles.active>
-						<log4j.configuration>log4j-developer.properties</log4j.configuration>
+						<log4j.configuration>file:${basedir}/src/etc/resources/log4j-developer.properties</log4j.configuration>
 					</systemProperties>
 				</configuration>
 				<dependencies>
