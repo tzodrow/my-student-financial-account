@@ -23,10 +23,6 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>edu.wisc.my.apps.studentfinancialaccount</groupId>
 			<artifactId>my-student-financial-account-impl</artifactId>
 			<version>${project.version}</version>
@@ -45,16 +41,9 @@
 				<artifactId>javax.inject</artifactId>
 		</dependency>
 		<dependency>
-				<groupId>javax.mail</groupId>
-				<artifactId>mail</artifactId>
-		</dependency>
-		<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet-api</artifactId>
-		</dependency>
-		<dependency>
-				<groupId>org.apache.derby</groupId>
-				<artifactId>derby</artifactId>
+				<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -78,13 +67,30 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<configuration>
-					<dependentWarExcludes>WEB-INF/web.xml,WEB-INF/lib</dependentWarExcludes>
+					<!--  <dependentWarExcludes>WEB-INF/web.xml,WEB-INF/lib</dependentWarExcludes> -->
 					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<overlays>
+						<overlay>
+							<groupId>edu.wisc.my.portal.angular</groupId>
+							<artifactId>angularjs-portal-frame</artifactId>
+							<excludes>
+								<exclude>WEB-INF/web.xml</exclude>
+								<exclude>WEB-INF/lib</exclude>
+							</excludes>
+						</overlay>
+					</overlays>
 				</configuration>
 			</plugin>
 			<plugin>
 			    <groupId>org.apache.tomcat.maven</groupId>
 			    <artifactId>tomcat7-maven-plugin</artifactId>
+			    <configuration>
+			    	<skip>false</skip>
+			    	<path>/</path>
+				<systemProperties>
+					<spring.profiles.active>local-users</spring.profiles.active>
+				</systemProperties>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>

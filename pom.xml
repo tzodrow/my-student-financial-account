@@ -43,14 +43,9 @@
 				<version>2.5.1</version>
 			</dependency>
 			<dependency>
-				<groupId>commons-io</groupId>
-				<artifactId>commons-io</artifactId>
-				<version>2.2</version>
-			</dependency>
-			<dependency>
 				<groupId>edu.wisc.my.portal.angular</groupId>
 				<artifactId>angularjs-portal-frame</artifactId>
-				<version>4.1.1.17</version>
+				<version>4.1.1.19-SNAPSHOT</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
@@ -69,11 +64,6 @@
 				<version>1</version>
 			</dependency>
 			<dependency>
-				<groupId>javax.mail</groupId>
-				<artifactId>mail</artifactId>
-				<version>${javax.mail.version}</version>
-			</dependency>
-			<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>javax.servlet-api</artifactId>
 				<version>3.0.1</version>
@@ -83,11 +73,6 @@
 				<artifactId>junit</artifactId>
 				<version>4.11</version>
 			</dependency>
-			<dependency>
-				<groupId>org.apache.derby</groupId>
-				<artifactId>derby</artifactId>
-				<version>${derby.version}</version>
-      		</dependency>
 			<dependency>
 				<groupId>org.jvnet.jaxb2_commons</groupId>
 				<artifactId>jaxb2-basics</artifactId>
@@ -192,27 +177,6 @@
 				<configuration>
 					<skip>true</skip>
 				</configuration>
-			</plugin>	
-			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.2</version>
-				<executions>
-					<execution>
-						<id>tomcat-run</id>
-						<goals>
-							<goal>run-war-only</goal>
-						</goals>
-						<phase>pre-integration-test</phase>
-					</execution>
-					<execution>
-						<id>tomcat-shutdown</id>
-						<goals>
-							<goal>shutdown</goal>
-						</goals>
-						<phase>post-integration-test</phase>
-					</execution>
-				</executions>
 			</plugin>
 		    <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -234,27 +198,35 @@
 					</execution>
 				</executions>
 			</plugin>
-		<plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>animal-sniffer-maven-plugin</artifactId>
-            <version>1.7</version>
-            <executions>
-               <execution>
-                  <id>signature-check</id>
-                  <phase>verify</phase>
-                  <goals>
-                     <goal>check</goal>
-                  </goals>
-               </execution>
-            </executions>
-            <configuration>
-               <signature>
-                  <groupId>org.codehaus.mojo.signature</groupId>
-                  <artifactId>java17</artifactId>
-                  <version>1.0</version>
-               </signature>
-            </configuration>
-         </plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<plugin>
+	            <groupId>org.codehaus.mojo</groupId>
+	            <artifactId>animal-sniffer-maven-plugin</artifactId>
+	            <version>1.7</version>
+	            <executions>
+	               <execution>
+	                  <id>signature-check</id>
+	                  <phase>verify</phase>
+	                  <goals>
+	                     <goal>check</goal>
+	                  </goals>
+	               </execution>
+	            </executions>
+	            <configuration>
+	               <signature>
+	                  <groupId>org.codehaus.mojo.signature</groupId>
+	                  <artifactId>java17</artifactId>
+	                  <version>1.0</version>
+	               </signature>
+	            </configuration>
+	         </plugin>
 		</plugins>
 	</build>
 
