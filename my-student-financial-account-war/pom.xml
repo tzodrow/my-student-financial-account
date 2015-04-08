@@ -67,7 +67,6 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<configuration>
-					<!--  <dependentWarExcludes>WEB-INF/web.xml,WEB-INF/lib</dependentWarExcludes> -->
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 					<overlays>
 						<overlay>
@@ -87,9 +86,6 @@
 			    <configuration>
 			    	<skip>false</skip>
 			    	<path>/</path>
-			    	<!-- <additionalClassesDirs>
-        				<additionalClassesDir>${basedir}/src/etc/resources</additionalClassesDir>
-      				</additionalClassesDirs> -->
 					<systemProperties>
 						<spring.profiles.active>local-users</spring.profiles.active>
 						<log4j.configuration>file:${basedir}/src/etc/resources/log4j-developer.properties</log4j.configuration>
