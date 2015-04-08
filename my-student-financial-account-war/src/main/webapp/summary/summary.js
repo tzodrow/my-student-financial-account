@@ -1,11 +1,12 @@
 'use strict';
 
-(function () {
-    angular.module('app.summary', [])
-        .directive('summary', function() {
-            return {
-                restrict: 'E',
-                templateUrl: '/summary/summary.html'
-            }
-        })
-})();
+define([], function() {
+    app.controller('SummaryController', function($scope, $rootScope) {
+        $rootScope.activeTab = 'summary';
+    });
+    return {
+        templateUrl: 'summary/summary.html',
+        controller: 'SummaryController'
+    };
+});
+

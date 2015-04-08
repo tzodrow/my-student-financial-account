@@ -1,11 +1,12 @@
 'use strict';
 
-(function () {
-    angular.module('app.pay', [])
-        .directive('pay', function() {
-            return {
-                restrict: 'E',
-                templateUrl: '/pay/pay.html'
-            }
-        })
-})();
+define([], function() {
+    app.controller('PayController', function($scope, $rootScope) {
+        $rootScope.activeTab = 'pay';
+    });
+    return {
+        templateUrl: 'pay/pay.html',
+        controller: 'PayController'
+    };
+});
+

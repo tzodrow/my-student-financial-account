@@ -1,11 +1,12 @@
 'use strict';
 
-(function () {
-    angular.module('app.users', [])
-        .directive('users', function() {
-            return {
-                restrict: 'E',
-                templateUrl: '/users/users.html'
-            }
-        })
-})();
+define([], function() {
+    app.controller('UsersController', function($scope, $rootScope) {
+        $rootScope.activeTab = 'users';
+    });
+    return {
+        templateUrl: 'users/users.html',
+        controller: 'UsersController'
+    };
+});
+

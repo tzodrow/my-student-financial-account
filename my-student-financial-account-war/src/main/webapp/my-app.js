@@ -1,26 +1,27 @@
 'use strict';
 
-(function() {
+define( [ 'history/history', 'home/home', 'login/login', 'pay/pay', 'settings/settings', 'summary/summary', 'users/users' ],
+	function( history, home, login, pay, settings, summary, users ) {
 
 	app.config(['$routeProvider', function($routeProvider) {
-			$routeProvider.when('/default', {
-				templateUrl: 'my-app.html'
-			}).when('/history', {
-				templateUrl: 'history/history.html'
-			}).when('/login', {
-				templateUrl: 'login/login.html'
-			}).when('/pay', {
-				templateUrl: 'pay/pay.html'
-			}).when('/settings', {
-				templateUrl: 'settings/settings.html'
-			}).when('/summary', {
-				templateUrl: 'summary/summary.html'
-			}).when('/users', {
-				templateUrl: 'users/users.html'
-			}).otherwise({
-				redirectTo: '/default'
+		$routeProvider
+			.when('/history', history)
+			.when('/home', home)
+			.when('/login', login)
+			.when('/pay', pay)
+			.when('/settings', settings)
+			.when('/summary', summary)
+			.when('/users', users)
+			.otherwise({
+				redirectTo: '/home'
 			});
-		}
-	]);
+	}]);
 
-})();
+	app.directive('tabs', function() {
+		return {
+			restrict: 'E',
+			templateUrl: 'partials/tabs.html'
+		}
+	});
+
+});

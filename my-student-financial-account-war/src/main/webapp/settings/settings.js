@@ -1,11 +1,12 @@
 'use strict';
 
-(function () {
-    angular.module('app.settings', [])
-        .directive('settings', function() {
-            return {
-                restrict: 'E',
-                templateUrl: '/settings/settings.html'
-            }
-        })
-})();
+define([], function() {
+    app.controller('SettingsController', function($scope, $rootScope) {
+        $rootScope.activeTab = 'settings';
+    });
+    return {
+        templateUrl: 'settings/settings.html',
+        controller: 'SettingsController'
+    };
+});
+

@@ -17,12 +17,12 @@
 
 	<properties>
 		<spring.framework.version>4.1.5.RELEASE</spring.framework.version>
-		<slf4j.version>1.7.7</slf4j.version> 
+		<slf4j.version>1.7.7</slf4j.version>
 		<uwss.version>0.1.1-SNAPSHOT</uwss.version>
 		<activeProfiles>local-users</activeProfiles>
 		<spring.profiles.active>local-users</spring.profiles.active>
-		<maven.compiler.target>1.7</maven.compiler.target>
-        <maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
 	    <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
 		<maven.compiler.testSource>1.8</maven.compiler.testSource>
 	</properties>
@@ -42,7 +42,7 @@
 			<dependency>
 				<groupId>edu.wisc.my.portal.angular</groupId>
 				<artifactId>angularjs-portal-frame</artifactId>
-				<version>4.1.1.17</version>
+				<version>4.1.1.19-SNAPSHOT</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
@@ -130,7 +130,7 @@
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-log4j12</artifactId>
 				<version>${slf4j.version}</version>
-			</dependency> 
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -142,11 +142,11 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.2</version>
 				</plugin>
-				<plugin>         
-					<groupId>org.apache.maven.plugins</groupId>         
-					<artifactId>maven-war-plugin</artifactId>         
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
 					<version>2.6</version>
-				</plugin> 
+				</plugin>
 				<plugin>
 					<groupId>org.eclipse.jetty</groupId>
 					<artifactId>jetty-maven-plugin</artifactId>
@@ -164,8 +164,8 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>${maven.compiler.target}</source>
-                    <target>${maven.compiler.source}</target>
+					<source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
 				</configuration>
 			</plugin>
 			<plugin>

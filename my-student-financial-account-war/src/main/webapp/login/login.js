@@ -1,11 +1,12 @@
 'use strict';
 
-(function () {
-    angular.module('app.login', [])
-        .directive('login', function() {
-            return {
-                restrict: 'E',
-                templateUrl: '/login/login.html'
-            }
-        })
-})();
+define([], function() {
+    app.controller('LoginController', function($scope, $rootScope) {
+        $rootScope.activeTab = 'login';
+    });
+    return {
+        templateUrl: 'login/login.html',
+        controller: 'LoginController'
+    };
+});
+
