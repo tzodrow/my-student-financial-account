@@ -18,6 +18,12 @@ Executing the following at the root of the project will start the application lo
 
 Point your browser at http://localhost:8080 and you are running.
 
+Executing the following at the root of the project will start the application locally with Tomcat7:
+
+> mvn install tomcat7:run-war
+
+Similarly to Jetty, it will be running at http://localhost:8080. 
+
 This application follows the non-portlet "App" pattern described in more detail at:
 
   https://github.com/UW-Madison-DoIT/my-app-seed
