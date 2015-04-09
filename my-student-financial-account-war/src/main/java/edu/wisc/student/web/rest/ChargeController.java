@@ -19,6 +19,7 @@ import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 
 import edu.wisc.student.finance.ChargeService;
+import edu.wisc.student.finance.security.AbstractCurrentUserAwareComponent;
 import edu.wisc.student.finance.v1.ChargeType;
 import edu.wisc.uwss.UWUserDetails;
 
@@ -27,10 +28,10 @@ import edu.wisc.uwss.UWUserDetails;
  *
  * @author zodrow
  */
-@Api("SPFP API")
+@Api("SPFP Charges API")
 @Controller
-@RequestMapping(value="/v1", produces={ MediaType.APPLICATION_JSON_VALUE})
-public class ChargeController {
+@RequestMapping(value="/v1/charges", produces={ MediaType.APPLICATION_JSON_VALUE})
+public class ChargeController extends AbstractCurrentUserAwareComponent {
 
   @Inject
   private ChargeService chargeService;
@@ -41,7 +42,7 @@ public class ChargeController {
    */
   @ApiOperation(value="Get all charges for the current authenticated user",
       notes="Retrieve all the charges current authenticated user", response=ChargeType.class)
-  @RequestMapping(value="charges", method=RequestMethod.GET)
+  @RequestMapping(value="", method=RequestMethod.GET)
   public @ResponseBody Collection<ChargeType> getCharges(){
     Collection<ChargeType> charges = chargeService.getCharges(currentUser());
     return charges;
@@ -54,19 +55,9 @@ public class ChargeController {
    */
   @ApiOperation(value="Get all charges for Student",
       notes="Retrieve all the charges associated with the student", response=ChargeType.class)
-  @RequestMapping(value="charges/{id}", method=RequestMethod.GET)
+  @RequestMapping(value="/{id}", method=RequestMethod.GET)
   public @ResponseBody Collection<ChargeType> getCharges( @PathVariable String id ){
     Collection<ChargeType> charges = chargeService.getCharges(id);
     return charges;
-  }
-
-  /**
-   * TODO: replace this with current UserDetails from Spring Security once integrated.
-   *
-   * @return the id of the current user
-   */
-  protected String currentUser() {
-    UWUserDetails user = (UWUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    return user.getPvi();
   }
 }

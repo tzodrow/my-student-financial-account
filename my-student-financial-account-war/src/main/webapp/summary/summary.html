@@ -1,13 +1,29 @@
 <div class="portlet-frame">
-    <portlet-header app-title="My Student Financial Account" app-image="img/square.jpg" app-description="View your University account balances and pay your University bills."></portlet-header>
+	<portlet-header app-title="My Student Financial Account"
+		app-image="img/square.jpg"
+		app-description="View your University account balances and pay your University bills."></portlet-header>
 
-    <div class="portlet-body">
-        <tabs></tabs>
-        <h3>Account Summary</h3>
-        <p class="center">Some text.</p>
-        <p class="center">$location.path: {{$location.path()}}</p>
-        <p class="center">$rootScope.activeTab: {{$root.activeTab}}</p>
-    </div>
+	<div class="portlet-body">
+		<tabs></tabs>
+		<h3>Account Summary</h3>
+		
+		<div>
+			<ul>
+				<li ng-repeat="user in authorizedUsers">
+					<a href="#/summary/{{user.pvi}}" ng-class="{'active' : user.selected }" >{{user.fullName}}</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div>Charges for {{selectedUser.fullName}}
+			<ul>
+				<li ng-repeat="charge in charges">{{charge}}</li>
+			</ul>
+		</div>
+
+		<p class="center">$location.path: {{$location.path()}}</p>
+		<p class="center">$rootScope.activeTab: {{$root.activeTab}}</p>
+		<p class="center">$scope.selectedUser: {{selectedUser.fullName}}</p>
+	</div>
 
 </div>
-
