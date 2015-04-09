@@ -20,5 +20,18 @@
     		<xs:element name="status" type="xs:string"/>
     	</xs:sequence>
     </xs:complexType>
+    <xs:complexType name="authorizedUser">
+    	<xs:annotation>
+    		<xs:documentation>
+				Complex type encapsulating a single authorized user on a students account.
+    		</xs:documentation>	
+    	</xs:annotation>
+    	<xs:sequence>
+    		<xs:element name="pvi" type="xs:string"/>
+    		<xs:element name="fullName" type="xs:string"/>
+    		<xs:element name="emailAddress" type="xs:string" />
+    	</xs:sequence>
+    </xs:complexType>
     <xs:element name="charge" type="sfa:chargeType"/>
+    <xs:element name="authorizedUser" type="sfa:authorizedUser"/>
 </xs:schema>
