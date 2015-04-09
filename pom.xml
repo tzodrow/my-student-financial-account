@@ -9,6 +9,13 @@
 	<description>Parent pom for My UW Madison Student Financial Account app.</description>
 
 	<repositories>
+		<!-- 
+		this repository is added to allow development to reference -SNAPSHOT builds of angularjs-portal-frame,
+		which are published here -->
+		<repository>
+			<id>sonatype-snapshots</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+		</repository>
 		<repository>
 			<id>code.doit-uw-releases</id>
 			<url>https://code.doit.wisc.edu/maven/content/repositories/uw-releases/</url>
