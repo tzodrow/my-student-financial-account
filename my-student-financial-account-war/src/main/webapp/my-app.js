@@ -13,7 +13,7 @@ define( [ 'history/history', 'home/home', 'login/login', 'pay/pay', 'settings/se
 			.when('/summary/:pvi*', summary)
 			.when('/users', users)
 			.otherwise({
-				redirectTo: '/home'
+				redirectTo: '/summary'
 			});
 	}]);
 

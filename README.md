@@ -4,7 +4,7 @@ This project is a My UW Madison App intended to provide students and parents wit
 
 ### Developer Requirements
 
-1. Java 8+
+1. Java 7 - strict, Java 8 is not yet supported by our target deployment environment
 2. Maven 3.2+
 
 ### Running locally
@@ -17,6 +17,12 @@ Executing the following at the root of the project will start the application lo
 > mvn install jetty:run
 
 Point your browser at http://localhost:8080 and you are running.
+
+Executing the following at the root of the project will start the application locally with Tomcat7:
+
+> mvn install tomcat7:run-war
+
+Similarly to Jetty, it will be running at http://localhost:8080. 
 
 This application follows the non-portlet "App" pattern described in more detail at:
 
