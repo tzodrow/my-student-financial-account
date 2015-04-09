@@ -13,7 +13,7 @@ define( [ 'history/history', 'home/home', 'login/login', 'pay/pay', 'settings/se
 			.when('/summary', summary)
 			.when('/users', users)
 			.otherwise({
-				redirectTo: '/home'
+				redirectTo: '/summary'
 			});
 	}]);
 
