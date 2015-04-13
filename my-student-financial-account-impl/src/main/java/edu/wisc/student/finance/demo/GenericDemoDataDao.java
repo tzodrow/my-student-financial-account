@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package edu.wisc.student.finance.demo;
 
@@ -27,18 +27,18 @@ public abstract class GenericDemoDataDao<T> {
 	 */
 	protected ObjectMapper mapper = new ObjectMapper();
 	protected Map<String, List<T>> data = Collections.emptyMap();
-	
+
 	  /**
 	   * Initialization method called {@link PostConstruct}.
-	   * 
+	   *
 	   * @see #readDemoData()
 	   * @throws IOException
 	   */
 	  @PostConstruct
 	  protected void init() throws IOException {
-	    data = Collections.unmodifiableMap(readDemoData());
+	    data = readDemoData();
 	  }
-	  
+
 	/**
 	 * @param key
 	 * @return a {@link List} of values for the given key.
@@ -52,15 +52,15 @@ public abstract class GenericDemoDataDao<T> {
 			return new ArrayList<T>(list);
 		  }
 	  }
-	  
+
 	  /**
 	   * Reads the demo data and returns it as a {@link Map}.
-	   * 
+	   *
 	   * @return
 	   * @throws IOException
 	   */
 	   protected abstract Map<String, List<T>> readDemoData() throws IOException;
-	   
+
 	/**
 	 * @return the path to the file containing the demo data
 	 */
