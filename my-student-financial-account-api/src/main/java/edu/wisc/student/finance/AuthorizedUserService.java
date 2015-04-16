@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package edu.wisc.student.finance;
 
@@ -13,8 +13,9 @@ import edu.wisc.student.finance.v1.AuthorizedUser;
  */
 public interface AuthorizedUserService {
 
-	/**
-	 * @return
-	 */
-	public List<AuthorizedUser> getAuthorizedUsers();
+	List<AuthorizedUser> getAuthorizedUsers();
+
+	// TODO: this process would have to be broken into 'invite' and 'accept' steps; PVIs could only be added directly with existing accounts.
+	void addAuthorizedUser(AuthorizedUser authorizedUser);
+
 }

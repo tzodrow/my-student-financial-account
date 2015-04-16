@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package edu.wisc.student.finance.demo;
 
@@ -26,7 +26,7 @@ import edu.wisc.student.finance.v1.AuthorizedUser;
 public class DemoAuthorizedUsersDaoImpl extends GenericDemoDataDao<AuthorizedUser> implements AuthorizedUserDao {
 
 	public static final String DEMO_AUTHZ_USERS_DATA = "edu/wisc/student/finance/demo/demo-authorized-users-service-data.json";
-	
+
 	/* (non-Javadoc)
 	 * @see edu.wisc.student.finance.AuthorizedUserDao#getAuthorizedUsers(edu.wisc.uwss.UWUserDetails)
 	 */
@@ -34,7 +34,13 @@ public class DemoAuthorizedUsersDaoImpl extends GenericDemoDataDao<AuthorizedUse
 	public List<AuthorizedUser> getAuthorizedUsers(String pvi) {
 		return getDemoData(pvi);
 	}
-	
+
+	@Override
+	public void addAuthorizedUser(String pvi, AuthorizedUser authorizedUser) {
+		System.out.println(pvi + " is authorizing " + authorizedUser); //FIXME: delete or turn into sanitized log statement
+		this.data.get(pvi).add(authorizedUser);
+	}
+
 	/* (non-Javadoc)
 	 * @see edu.wisc.student.finance.demo.GenericDemoDataDao#getDemoDataPath()
 	 */
@@ -47,10 +53,10 @@ public class DemoAuthorizedUsersDaoImpl extends GenericDemoDataDao<AuthorizedUse
 	 * @see edu.wisc.student.finance.demo.GenericDemoDataDao#readDemoData()
 	 */
 	@Override
-	protected Map<String, List<AuthorizedUser>> readDemoData()
-			throws IOException {
+	protected Map<String, List<AuthorizedUser>> readDemoData() throws IOException {
 		try (InputStream is = new ClassPathResource(getDemoDataPath()).getInputStream()) {
-			       return mapper.readValue(is, new TypeReference<Map<String, List<AuthorizedUser>>>() { });
-			   }
-		   }
+			return mapper.readValue(is, new TypeReference<Map<String, List<AuthorizedUser>>>() { });
+		}
+	}
+
 }

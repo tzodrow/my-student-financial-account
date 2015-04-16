@@ -1,13 +1,13 @@
 'use strict';
 
 define([], function() {
-	
+
     app.controller('SummaryController',['authorizedUsersService', 'chargeService', '$http', '$routeParams', '$scope', '$rootScope',  function(authorizedUsersService, chargeService, $http, $routeParams, $scope, $rootScope) {
-    	
+
     	$rootScope.activeTab = 'summary';
         $scope.isSelected = function (user){
         	return $scope.selectedUser == user;
-        }
+        };
         authorizedUsersService.getAuthorizedUsers().success(function(data) {
 			$scope.authorizedUsers = data;
 			if($scope.authorizedUsers.length > 0){
@@ -31,9 +31,9 @@ define([], function() {
 	        	//error no authorized users found.
 	        }
 		});
-        
+
     }]);
-    
+
     return {
         templateUrl: 'summary/summary.html',
         controller: 'SummaryController'
