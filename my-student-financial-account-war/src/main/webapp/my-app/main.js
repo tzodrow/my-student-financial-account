@@ -1,17 +1,42 @@
 'use strict';
-define( [ 'history/history', 'home/home', 'login/login', 'pay/pay', 'settings/settings', 'summary/summary', 'users/users' ],
-	function( history, home, login, pay, settings, summary, users ) {
+
+define([
+		'angular',
+		'require',
+		'./history/history',
+		'./home/home',
+		'./login/login',
+		'./pay/pay',
+		'./settings/settings',
+		'./summary/summary',
+		'./users/users',
+		'ngRoute',
+		'portal'
+	],
+	function(angular, require, history, home, login, pay, settings, summary, users ) {
+
+		var app = angular.module('my-app', [
+			'my-app.history',
+			'my-app.home',
+			'my-app.login',
+			'my-app.pay',
+			'my-app.settings',
+			'my-app.summary',
+			'my-app.users',
+			'ngRoute',
+			'portal'
+		]);
 
 	app.config(['$routeProvider', function($routeProvider) {
 		$routeProvider
-			.when('/history', history)
-			.when('/home', home)
-			.when('/login', login)
-			.when('/pay', pay)
-			.when('/settings', settings)
-			.when('/summary/', summary)
-			.when('/summary/:pvi*', summary)
-			.when('/users', users)
+			.when('/history', history.route)
+			.when('/home', home.route)
+			.when('/login', login.route)
+			.when('/pay', pay.route)
+			.when('/settings', settings.route)
+			.when('/summary/', summary.route)
+			.when('/summary/:pvi*', summary.route)
+			.when('/users', users.route)
 			.otherwise({
 				redirectTo: '/summary'
 			});
@@ -20,7 +45,7 @@ define( [ 'history/history', 'home/home', 'login/login', 'pay/pay', 'settings/se
 	app.directive('tabs', function() {
 		return {
 			restrict: 'E',
-			templateUrl: 'partials/tabs.html'
+			templateUrl: require.toUrl('./partials/tabs.html')
 		}
 	});
 
@@ -55,5 +80,7 @@ define( [ 'history/history', 'home/home', 'login/login', 'pay/pay', 'settings/se
 			}
 		}
 	}]);
+
+	return app;
 
 });

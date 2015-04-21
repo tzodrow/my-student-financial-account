@@ -1,9 +1,10 @@
 'use strict';
 
-define([], function() {
-	app.controller('HistoryController',['authorizedUsersService', 'chargeService', '$http', '$routeParams', '$scope', '$rootScope',  
-    	function(authorizedUsersService, chargeService, $http, $routeParams, $scope, $rootScope) {
+define(['angular', 'require'], function(angular, require) {
 
+	var app = angular.module('my-app.history', []);
+	app.controller('HistoryController',['authorizedUsersService', 'chargeService', '$http', '$routeParams', '$scope', '$rootScope',
+		function(authorizedUsersService, chargeService, $http, $routeParams, $scope, $rootScope) {
 		$rootScope.activeTab = 'history';
 		$scope.isSelected = function (user){
 			return $scope.selectedUser == user;
@@ -31,11 +32,14 @@ define([], function() {
 				//error no authorized users found.
 			}
 		});
-
 	}]);
 
-	return {
-		templateUrl: '/history/history.html',
+	app.route = {
+		templateUrl: require.toUrl('./history.html'),
 		controller: 'HistoryController'
 	};
+
+	return app;
+
 });
+
