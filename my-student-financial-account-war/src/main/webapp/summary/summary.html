@@ -6,15 +6,15 @@
 	<div class="portlet-body">
 		<tabs></tabs>
 		<h3>Account Summary</h3>
-		
+
 		<div>
 			<ul>
 				<li ng-repeat="user in authorizedUsers">
-					<a href="#/summary/{{user.pvi}}" ng-class="{'active' : user.selected }" >{{user.fullName}}</a>
+					<a href="summary/{{user.pvi}}" ng-class="{'active' : user.selected }" >{{user.fullName}}</a>
 				</li>
 			</ul>
 		</div>
-		
+
 		<div>Charges for {{selectedUser.fullName}}
 			<ul>
 				<li ng-repeat="charge in charges">{{charge}}</li>

@@ -2,7 +2,7 @@
     <portlet-header app-title="My Student Financial Account" app-image="img/square.jpg" app-description="View your University account balances and pay your University bills."></portlet-header>
 
     <div class="portlet-body">
-        <a href="#/settings"><span class="glyphicon glyphicon-menu-left"></span>Return to Account Settings</a>
+        <a href="settings"><span class="glyphicon glyphicon-menu-left"></span>Return to Account Settings</a>
         <h3>Add an authorized user</h3>
         <form name="addAuthorizedUserForm" id="addAuthorizedUserForm" role="form" class="form form-horizontal padding-std" novalidate >
             What is the name and email address of the person you would like to give access?
@@ -57,10 +57,7 @@
                     </label>
                 </div>
             </div>
-                <!--
-                <input class="btn btn-default" type="button" value="Cancel" go-click="#/"/>
-                -->
-                <input class="btn btn-primary" type="submit" value="Add this user" ng-click="authorize(user)" ng-disabled="addAuthorizedUserForm.$invalid"/>
+            <input class="btn btn-primary" type="submit" value="Add this user" ng-click="authorize(user)" ng-disabled="addAuthorizedUserForm.$invalid"/>
         </form>
     </div>
 
