@@ -128,6 +128,10 @@
 					<webApp>
 						<extraClasspath>${basedir}/src/etc/resources</extraClasspath>
 					</webApp>
+					<contextHandler implementation="org.eclipse.jetty.maven.plugin.JettyWebAppContext">
+		              <war>${project.basedir}/target/my-student-financial-account.war</war>
+		              <contextPath>/spfp</contextPath>
+		            </contextHandler>
 				</configuration>
 			</plugin>
 		</plugins>
