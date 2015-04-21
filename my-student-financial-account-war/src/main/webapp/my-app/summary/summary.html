@@ -14,7 +14,7 @@
 							<strong>Switch account:</strong>
 							<select >
 								<option ng-repeat="user in authorizedUsers">
-									<a href="#/summary/{{user.pvi}}" ng-class="{'active' : user.selected }" >{{user.fullName}}</a>
+									<a href="summary/{{user.pvi}}" ng-class="{'active' : user.selected }" >{{user.fullName}}</a>
 								</option>
 							</select>
 						</div>
@@ -90,7 +90,7 @@
 									</div>
 								</div>
 							</a>
-							
+
 							<a href="#" class="list-group-item spfp-list-group-item-balance">
 								<h4 class="list-group-item-heading bold">Balance</h4>
 								<p class="list-group-item-text">$9,548</p>
@@ -158,7 +158,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="col-sm-3">
 				<div class="need-help">
 					<h3 class="bold">Need help?</h3>

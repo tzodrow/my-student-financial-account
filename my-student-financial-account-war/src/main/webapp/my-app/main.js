@@ -27,7 +27,8 @@ define([
 			'portal'
 		]);
 
-	app.config(['$routeProvider', function($routeProvider) {
+	app.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+		$locationProvider.html5Mode(true);
 		$routeProvider
 			.when('/history', history.route)
 			.when('/home', home.route)
