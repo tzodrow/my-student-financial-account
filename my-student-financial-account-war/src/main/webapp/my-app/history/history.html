@@ -1,7 +1,7 @@
 <div class="portlet-frame">
     <portlet-header app-title="My Student Financial Account" app-image="img/square.jpg" app-description="View your University account balances and pay your University bills."></portlet-header>
         <tabs></tabs>
-        <div class="spdf-body">
+        <div class="spfp-body">
             <h3 class="bold">Transaction History</h3>
             <ul class="trans-types pull-left"> 
                 <li><span class="bold">View:</span></li>
@@ -45,7 +45,7 @@
                     <div class="need-help">
                         <h3 class="bold">Need help?</h3>
                         <p class="h3"><a href="#">I don't see all my transactions</a></p>
-                        <h4 class="bold">Other Questions?</h4>
+                        <h4 class="bold other-questions">Other Questions?</h4>
                         <p><i class="fa fa-phone"></i> Call {/{phone}/}</p>
                         <p><i class="fa fa-envelope"></i> Email {/{email}/}</p>
                     </div>
@@ -60,7 +60,7 @@
                   color: #880032;
                   text-decoration: none;
                 }
-                .spdf-body {
+                .spfp-body {
                     padding: 30px;
                 }
                 .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
@@ -120,7 +120,11 @@
                     padding: 15px;
                 }
                 .need-help .h3 {
-                    margin-bottom: 40px;
+                    margin-bottom: 10px;
+                    font-size: 14px;
+                }
+                .need-help .other-questions{
+                    margin-top: 30px;
                 }
             </style>
         </div>
