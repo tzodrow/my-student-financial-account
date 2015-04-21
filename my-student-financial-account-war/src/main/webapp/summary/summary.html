@@ -1,54 +1,125 @@
 <div class="portlet-frame">
 	<portlet-header app-title="My Student Financial Account"
 		app-image="img/square.jpg"
-		app-description="View your University account balances and pay your University bills."></portlet-header>
-		<tabs></tabs>
+	app-description="View your University account balances and pay your University bills."></portlet-header>
+	<tabs></tabs>
 	<div class="spfp-body">
 		<div class="row">
-			<div class="col-xs-12">
-			<div class="row">
-				<div class="col-sm-4">
-					<div class="spfp-view-heading">Account Summary</div>
-				</div>
-				<div class="col-sm-8">
-					<div class="spfp-switch-account">
-						<strong>Switch account:</strong> 
-						<select >
-							<option ng-repeat="user in authorizedUsers">
-								<a href="#/summary/{{user.pvi}}" ng-class="{'active' : user.selected }" >{{user.fullName}}</a>
-							</option>
-						</select>
+			<div class="col-sm-9">
+				<div class="row">
+					<div class="col-sm-4">
+						<h3 class="bold">Account Summary</h3>
+					</div>
+					<div class="col-sm-8">
+						<div class="spfp-switch-account">
+							<strong>Switch account:</strong>
+							<select >
+								<option ng-repeat="user in authorizedUsers">
+									<a href="#/summary/{{user.pvi}}" ng-class="{'active' : user.selected }" >{{user.fullName}}</a>
+								</option>
+							</select>
+						</div>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-sm-12 spfp-activity-summary">
+						<div class="panel panel-default">
+					        <div class="panel-heading">Activity Summary</div>
+					        <div class="panel-body center">
+					          <div class="row spfp-summary-buckets">
+					          	<div class="col-sm-4">
+					          		<span class="bill-number">2</span> Upcoming Bills <br />
+					          		$9,548<br />
+					          		<span class="light-gray">(All)</span>
+					          	</div>
+					          	<div class="col-sm-4">
+					          		<span class="bill-number">2</span> Upcoming Bills <br />
+					          		$9,548<br />
+					          		<span class="light-gray">(All)</span>
+					          	</div>
+					          	<div class="col-sm-4">
+					          		<span class="bill-number">2</span> Upcoming Bills <br />
+					          		$9,548<br />
+					          		<span class="light-gray">(All)</span>
+					          	</div>
+					          </div>
+					        </div>
+					      </div>
+					</div>
+				</div>
+				<div>Charges for {{selectedUser.fullName}}
+					<p>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+				</div>
+				<p class="center">$location.path: {{$location.path()}}</p>
+				<p class="center">$rootScope.activeTab: {{$root.activeTab}}</p>
+				<p class="center">$scope.selectedUser: {{selectedUser.fullName}}</p>
 			</div>
-		
-		<div>Charges for {{selectedUser.fullName}}
-			<p>t is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+			<div class="col-sm-3">
+                    <div class="need-help">
+                        <h3 class="bold">Need help?</h3>
+                        <p class="h3"><a href="#">I don't see my bill</a></p>
+                        <p class="h3"><a href="#">My bill amount appears to be wrong</a></p>
+                        <h4 class="bold other-questions">Other Questions?</h4>
+                        <p><i class="fa fa-phone"></i> Call {/{phone}/}</p>
+                        <p><i class="fa fa-envelope"></i> Email {/{email}/}</p>
+                    </div>
+                </div>
 		</div>
-
-		<p class="center">$location.path: {{$location.path()}}</p>
-		<p class="center">$rootScope.activeTab: {{$root.activeTab}}</p>
-		<p class="center">$scope.selectedUser: {{selectedUser.fullName}}</p>
 	</div>
 </div>
 </div>
-</div>
 
-</div>
 <style>
-	.spfp-view-heading{
-		font-size: 24px;
-		font-weight: 600;
-	}
-	.spfp-body{
-		padding:20px;
-	}
-	.spfp-switch-account{
-		padding-top:10px;
-	}
-	@media screen and (min-width: 768px){
-		.spfp-switch-account{
-			text-align: right;
-		}
-	}
-</style>
+                /* Using style tag until we get a proper css include working with the project */
+                a {
+                  color: #880032;
+                  text-decoration: none;
+                }
+                .spfp-body {
+                    padding: 30px;
+                }
+                .spfp-view-heading{
+                	font-size: 28px;
+                }
+                .spfp-activity-summary{
+                	margin-top:30px;
+                }
+                .spfp-activity-summary .panel-heading{
+                	background-color: #787878;
+                	color: #fff;
+                	font-size: 16px;
+                	font-weight: bold;
+                }
+                .spfp-summary-buckets div:nth-child(even){
+                	border-right:solid 1px rgb(221, 221, 221);
+                	border-left: solid 1px rgb(221, 221, 221);
+                }
+                .spfp-summary-buckets .bill-number{
+                	font-size: 2rem;
+                	font-weight: bold;
+                }
+                .spfp-summary-buckets .light-gray{
+                	color:#787878;
+                }
+                .need-help {
+                    background-color: #EFEFEF;
+                    border-radius: 10px;
+                    padding: 15px;
+                }
+                .need-help .h3 {
+                    margin-bottom: 10px;
+                    font-size: 14px;
+                }
+                .need-help .other-questions{
+                	margin-top: 30px;
+                }
+                .spfp-switch-account{
+					padding-top:25px;
+				}
+
+				@media screen and (min-width: 768px){
+					.spfp-switch-account{
+						text-align: right;
+					}
+				}
+            </style>
