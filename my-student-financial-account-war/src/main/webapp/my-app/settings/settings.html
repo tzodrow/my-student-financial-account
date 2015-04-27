@@ -1,14 +1,96 @@
 <div class="portlet-frame">
     <portlet-header app-title="My Student Financial Account" app-image="img/square.jpg" app-description="View your University account balances and pay your University bills."></portlet-header>
-
-    <div class="portlet-body">
-        <tabs></tabs>
-        <div class="page-content">
-            <h3 class="center">Settings</h3>
-            <a href="users">Add authorized user</a>
-            <p class="center">Some text.</p>
-            <p class="center">$location.path: {{$location.path()}}</p>
-            <p class="center">$rootScope.activeTab: {{$root.activeTab}}</p>
+    <tabs></tabs>
+    <div class="spfp-body">  
+        <div class="row">
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="bold">Account Settings</h3>
+                    </div>
+                </div>
+                <div class="row spfp-list-group-title">
+                    <div class="col-sm-2">
+                        <h4 class="bold">Notifications</h4>
+                    </div>
+                    <div class="col-sm-10 text-right">
+                        <button type="button" class="btn btn-primary btn-lg">Add a new notification</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm-10">
+                                        <h4 class="list-group-item-heading bold">Upcoming Bill Alert</h4>
+                                        <p class="list-group-item-text">Send to: <span class="light-gray">EMAIL p...@gmail.com</span></p>
+                                    </div>
+                                    <div class="col-sm-2 spfp-list-group-item-details">
+                                        <p class="red">Edit</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm-10">
+                                        <h4 class="list-group-item-heading bold">Overdue Bill Alert</h4>
+                                        <p class="list-group-item-text">Send to: <span class="light-gray">TEXT ***-2644</span></p>
+                                    </div>
+                                    <div class="col-sm-2 spfp-list-group-item-details">
+                                        <p class="red">Edit</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row spfp-list-group-title">
+                    <div class="col-sm-3">
+                        <h4 class="bold">Authorized Users</h4>
+                    </div>
+                    <div class="col-sm-9 text-right">
+                        <button type="button" class="btn btn-primary btn-lg">Add authorized user</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h4 class="list-group-item-heading bold">Armstead Feland</h4>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h4 class="list-group-item-heading bold">Emil Treige</h4>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h4 class="list-group-item-heading bold">Matt Nygaard</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="need-help">
+                    <h3 class="bold">Need help?</h3>
+                    <p class="h3"><a href="#">I don't see my bill</a></p>
+                    <p class="h3"><a href="#">My bill amount appears to be wrong</a></p>
+                    <h4 class="bold other-questions">Other Questions?</h4>
+                    <p><i class="fa fa-phone"></i> Call {/{phone}/}</p>
+                    <p><i class="fa fa-envelope"></i> Email {/{email}/}</p>
+                </div>
+            </div>
         </div>
     </div>
 
