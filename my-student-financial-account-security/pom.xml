@@ -12,6 +12,11 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>edu.wisc.my.apps.studentfinancialaccount</groupId>
+			<artifactId>my-student-financial-account-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>edu.wisc.uwss</groupId>
 			<artifactId>uw-spring-security-core</artifactId>
 		</dependency>

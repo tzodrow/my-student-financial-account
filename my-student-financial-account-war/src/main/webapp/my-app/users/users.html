@@ -1,0 +1,64 @@
+<div class="portlet-frame">
+    <portlet-header app-title="My Student Financial Account" app-image="img/square.jpg" app-description="View your University account balances and pay your University bills."></portlet-header>
+
+    <div class="portlet-body">
+        <a href="settings"><span class="glyphicon glyphicon-menu-left"></span>Return to Account Settings</a>
+        <h3>Add an authorized user</h3>
+        <form name="addAuthorizedUserForm" id="addAuthorizedUserForm" role="form" class="form form-horizontal padding-std" novalidate >
+            What is the name and email address of the person you would like to give access?
+            <div class="">
+                <label for="pvi" class="control-label">Authorized user's PVI:</label>
+                <input type="text" id="pvi" class="form-control" ng-model="user.pvi" placeholder="UW000A001" />
+            </div>
+            <div class="">
+                <label for="name" class="control-label">Authorized user's name:</label>
+                <input type="text" id="name" class="form-control" ng-model="user.fullName" placeholder="Jane Doe" />
+            </div>
+            <div class="">
+                <label for="email" class="control-label">Authorized user's email:</label>
+                <input type="email" id="email" class="form-control" ng-model="user.emailAddress" placeholder="jane.doe@wisc.edu" />
+            </div>
+            <label>
+            <input type="checkbox" id="consent" />
+                I understand that by adding this authorized user, I am giving them permission to view, make payments, and see on all of your university bills. HIPPA- and FERPA-protected information, such as details of University Health Services bills, not be visible.
+            </label>
+            <label for="message" class="form-label">Add a message to the email notification this person will receive:</label>
+            <textarea id="message" ng-model="user.message" class="form-control"></textarea>
+            <div class="">
+                <p>What is this person allowed to do in your account?</p>
+                <div>
+                    <label class="form-label">Log in:
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="user.loginPermission" value="true"> Yes
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="user.loginPermission" value="false"> No
+                        </label>
+                    </label>
+                </div>
+                <div>
+                    <label class="form-label">View your bills:
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="user.viewBillsPermission" value="true"> Yes
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="user.viewBillsPermission" value="false"> No
+                        </label>
+                    </label>
+                </div>
+                <div>
+                    <label class="form-label">Receive email notifications about your bills:
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="user.emailNotificationPermission" value="true"> Yes
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" ng-model="user.emailNotificationPermission" value="false"> No
+                        </label>
+                    </label>
+                </div>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Add this user" ng-click="authorize(user)" ng-disabled="addAuthorizedUserForm.$invalid"/>
+        </form>
+    </div>
+
+</div>

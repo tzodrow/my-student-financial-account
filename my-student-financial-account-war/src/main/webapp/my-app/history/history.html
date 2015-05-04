@@ -1,0 +1,59 @@
+<div class="portlet-frame">
+    <portlet-header app-title="My Student Financial Account" app-image="img/square.jpg" app-description="View your University account balances and pay your University bills."></portlet-header>
+        <tabs></tabs>
+        <div class="spfp-body">
+            <h3 class="bold">Transaction History</h3>
+            <ul class="trans-types pull-left"> 
+                <li><span class="bold">View:</span></li>
+                <li ng-class="(true) ? 'selected' : ''"  class="btn-def-bg"><a href="#" class="btn btn-default">All</a></li>
+                <li class="btn-neu-bg"><a href="#" class="btn btn-neutral">Tuition</a></li>
+                <li class="btn-pri-bg"><a href="#" class="btn btn-primary">Housing</a></li>
+                <li class="btn-suc-bg"><a href="#" class="btn btn-success">Health Services</a></li>
+            </ul> 
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="table-responsive">
+                        <table class="transaction-table table table-striped table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Category <i class="fa fa-caret-down"></i></th>
+                                    <th class="space">Description <i class="fa fa-caret-down"></i></th>
+                                    <th>Date <i class="fa fa-caret-down"></i></th>
+                                    <th>Amount <i class="fa fa-caret-down"></i></th>
+                                    <th>View Bill</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Needs to be altered to only show paid transactions. For now this just uses the mock data -->
+                                <tr ng-repeat="charge in charges">
+                                    <td style="width:150px">
+                                        <a ng-class="{ 'btn-primary' : charge.name === 'Housing',
+                                                       'btn-neutral' : charge.name === 'Tuition',
+                                                       'btn-success' : charge.name === 'Health Services'
+                                        }" href="#" class="btn btn-block">{{charge.name}}</a></td>
+                                    <td class="space">{{charge.description}}</td>
+                                    <td>{{charge.lastUpdated | date:'shortDate'}}</td>
+                                    <td>{{charge.balanceDue | currency}}</td>
+                                    <td><a href="#">View Bill</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-center"><a href="#">See More</a></p>
+                </div>
+                <div class="col-sm-3">
+                    <div class="need-help">
+                        <h3 class="bold">Need help?</h3>
+                        <p class="h3"><a href="#">I don't see all my transactions</a></p>
+                        <h4 class="bold other-questions">Other Questions?</h4>
+                        <p><i class="fa fa-phone"></i> Call {/{phone}/}</p>
+                        <p><i class="fa fa-envelope"></i> Email {/{email}/}</p>
+                    </div>
+                </div>
+            </div>
+            <p class="center">Some text.</p>
+            <p class="center">$location.path: {{$location.path()}}</p>
+            <p class="center">$rootScope.activeTab: {{$root.activeTab}}</p>
+        </div>
+</div>
+

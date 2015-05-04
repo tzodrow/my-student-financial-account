@@ -8,9 +8,18 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import java.util.Collections;
+
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.security.core.Authentication;
 
+import edu.wisc.student.finance.AuthorizedUserService;
 import edu.wisc.uwss.UWUserDetails;
 
 /**
@@ -18,17 +27,21 @@ import edu.wisc.uwss.UWUserDetails;
  * 
  * @author Nicholas Blair
  */
-public class StudentFinancialAccountPermissionEvaluatorTest {
-
+@RunWith(MockitoJUnitRunner.class)public class StudentFinancialAccountPermissionEvaluatorTest {
+	@Mock AuthorizedUserService authzService;
+	@InjectMocks StudentFinancialAccountPermissionEvaluator evaluator = new StudentFinancialAccountPermissionEvaluator();
+	
+	@Before
+	public void setup(){
+		when(authzService.getAuthorizedUsers()).thenReturn(Collections.emptyList());
+	}
   /**
    * Control experiment for {@link StudentFinancialAccountPermissionEvaluator#hasPermission(org.springframework.security.core.Authentication, Object, Object)}
    * confirming access is granted for viewCharges on the authenticated user's PVI.
    */
   @Test
   public void hasPermission_successful_viewCharges_self() {
-    StudentFinancialAccountPermissionEvaluator evaluator = new StudentFinancialAccountPermissionEvaluator();
     Authentication authentication = forPvi("UW123X123");
-    
     assertTrue(evaluator.hasPermission(authentication, "UW123X123", StudentFinancialAccountPermissionEvaluator.VIEW_CHARGES));
   }
   /**
@@ -37,9 +50,7 @@ public class StudentFinancialAccountPermissionEvaluatorTest {
    */
   @Test
   public void hasPermission_failed_viewCharges_someoneelse() {
-    StudentFinancialAccountPermissionEvaluator evaluator = new StudentFinancialAccountPermissionEvaluator();
     Authentication authentication = forPvi("UW123X124");
-    
     assertFalse(evaluator.hasPermission(authentication, "UW123X123", StudentFinancialAccountPermissionEvaluator.VIEW_CHARGES));
   }
   

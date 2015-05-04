@@ -4,15 +4,19 @@
 package edu.wisc.student.finance.security;
 
 import java.io.Serializable;
+import java.util.List;
+
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.access.PermissionEvaluator;
 import org.springframework.security.core.Authentication;
 
+import edu.wisc.student.finance.AuthorizedUserService;
+import edu.wisc.student.finance.v1.AuthorizedUser;
 import edu.wisc.uwss.UWUserDetails;
-
-import javax.inject.Named;
 
 /**
  * {@link PermissionEvaluator} implementing access control for Spring Security
@@ -26,6 +30,8 @@ public class StudentFinancialAccountPermissionEvaluator implements PermissionEva
   public static final String VIEW_CHARGES = "viewCharges";
   private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+  @Inject AuthorizedUserService authzService;
+  
   /* (non-Javadoc)
    * @see org.springframework.security.access.PermissionEvaluator#hasPermission(org.springframework.security.core.Authentication, java.lang.Object, java.lang.Object)
    */
@@ -39,13 +45,18 @@ public class StudentFinancialAccountPermissionEvaluator implements PermissionEva
         if(user.getPvi().equals(targetDomainObject)) {
           logger.debug("{} has permission '{}' on id {} because the authenticated user has that id", user, permission, targetDomainObject);
           return true;
+        }else{
+        	List<AuthorizedUser> authorizedUsers = authzService.getAuthorizedUsers();
+        	for(AuthorizedUser authUser : authorizedUsers){
+        		if(authUser.getPvi().equals(targetDomainObject)){
+        			logger.debug("{} has permission '{}' on id {} because the authenticated user has relationship with id", user, permission, targetDomainObject);
+        	        return true;
+        		}
+        	}
         }
-        // TODO if we get here, the id being requested is different from the authenticated user
-        // TODO integrate with relationship management service to see if this user has the specified permission for the target user
-        // this would represent an authorized payer requesting data for a student
       }
     }
-    logger.debug("{} DOES NOT have permission '{}' on object {}", principal, permission, targetDomainObject);
+    logger.warn("{} DOES NOT have permission '{}' on object {}", principal, permission, targetDomainObject);
     return false;
   }
 

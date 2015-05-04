@@ -18,6 +18,8 @@ Executing the following at the root of the project will start the application lo
 
 Point your browser at http://localhost:8080 and you are running.
 
+Login in credentials: U admin P admin
+
 Executing the following at the root of the project will start the application locally with Tomcat7:
 
 > mvn install tomcat7:run-war

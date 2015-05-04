@@ -1,0 +1,24 @@
+<div class="portlet-frame">
+    <portlet-header app-title="My Student Financial Account" app-image="img/square.jpg" app-description="View your University account balances and pay your University bills."></portlet-header>
+
+    <div class="portlet-body">
+        <!-- App Navigation if Needed -->
+        <div class="inner-nav-container">
+            <ul class="inner-nav">
+                <li ng-class="{active: $root.activeTab === 'home'}"><a href="home">Home</a></li>
+                <li ng-class="{active: $root.activeTab === 'history'}"><a href="history">History</a></li>
+                <li ng-class="{active: $root.activeTab === 'login'}"><a href="login">Login</a></li>
+                <li ng-class="{active: $root.activeTab === 'pay'}"><a href="pay">Pay</a></li>
+                <li ng-class="{active: $root.activeTab === 'settings'}"><a href="settings">Settings</a></li>
+                <li ng-class="{active: $root.activeTab === 'summary'}"><a href="summary">Summary</a></li>
+                <li ng-class="{active: $root.activeTab === 'users'}"><a href="users">Users</a></li>
+            </ul>
+        </div>
+        <div class="page-content">
+            <h3 class="center">Content for view 1</h3>
+            <p class="center">Some text.</p>
+            <p class="center">$location.path: {{$location.path()}}</p>
+            <p class="center">$rootScope.activeTab: {{$root.activeTab}}</p>
+        </div>
+    </div>
+</div>
